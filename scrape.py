@@ -22,9 +22,9 @@ with open(argv[2], 'w', newline='') as f:
     for queue in tables:
         for tr in queue.findAll('tr'):
             try:
-                divu = parse.urlparse(tr.a['href'])
-                eurl = parse.quote(''.join(divu[2:3]))
-                data = ['://'.join(divu[0:2]) + eurl, tr.a.text, tr.span.text]
+                surl = parse.urlparse(tr.a['href'])
+                eurl = parse.quote(''.join(surl[2:3]))
+                data = ['://'.join(surl[0:2]) + eurl, tr.a.text, tr.span.text]
                 writer.writerow(data)
             except:
                 pass
